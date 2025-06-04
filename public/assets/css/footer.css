@@ -1,0 +1,40 @@
+#footer{
+    background-color: #f0f0f0;
+    font-family: Arial, Helvetica, sans-serif;
+    height: 500px;
+    border-top: 1px solid gainsboro;
+}
+
+#footer-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 8px;
+    max-width: 1488px;
+    margin: 20px auto;
+}
+
+.block-container{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.8em;
+    line-height: 2;
+    color: dimgray;
+    margin: 10px 0px;
+}
+
+.block-container span{
+    color: black;
+    font-weight: bold;
+    line-height: 2.3;
+}
+
+.block-container p{
+    margin-bottom: 10px;
+    margin-top: 0px;
+}
+
+#copyright{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.7em;
+    padding: 8px 150px;
+}

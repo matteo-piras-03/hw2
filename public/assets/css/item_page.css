@@ -1,0 +1,201 @@
+body{
+    padding: 0px;
+    margin: 0px;
+}
+
+.hidden{
+    display: none;
+}
+
+.ebay-logo{
+    height: 30px;
+    margin-right: 30px;
+}
+
+#nav_1_right{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-width: 30px;
+}
+
+#nav_1_right a{
+    margin: 0px 15px;
+}
+
+#main{
+    font-family: Arial, Helvetica, sans-serif;
+    position: relative;
+    display: flex;
+    max-width: 1488px;
+    margin: 50px auto;
+}
+
+#main .img-container{
+    margin-left: 50px;
+    margin-right: 50px;
+    width: 500px;
+    height: 500px;
+}
+
+#main img{
+    max-height: 500px;
+    max-width: 500px;
+}
+
+#main h3{
+    font-family: "Montserrat", sans-serif;
+}
+
+#main .price{
+    font-weight: bold;
+    font-size: 1.5em;
+    line-height: 2;
+}
+
+#main .shipping{
+    color: #707070;
+    line-height: 2.5em;
+}
+
+#main .buy-button{
+    width: 300px;
+    position: absolute;
+    font-weight: bold;
+    font-family: "Helvetica";
+    padding: 12px 20px;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    color:#ffffff;
+    background-color: #1e90ff;
+    transition: background-color 0.2s;
+    right: 20px;
+    bottom: 100px;
+}
+
+#main .buy-button:hover{
+    background-color: #1871c9;
+}
+
+#main .cart-error{
+    color:red;
+    position: absolute;
+    right: 20px;
+    bottom: 110px;
+}
+
+#main .cart-added{
+    color:#303030;
+    position: absolute;
+    right: 20px;
+    bottom: 110px;
+}
+
+#main .save-button{
+    width: 300px;
+    position: absolute;
+    font-weight: bold;
+    font-family: "Helvetica";
+    padding: 12px 20px;
+    border-radius: 20px;
+    border: 2px solid #1e90ff;
+    cursor: pointer;
+    color:#1e90ff;
+    background-color: #ffffff;
+    transition: background-color 0.2s;
+    right: 20px;
+    bottom: 40px;
+}
+
+#main .save-button:hover{
+    background-color: #f0f0f0;
+}
+
+#main .save-error{
+    color:red;
+    position: absolute;
+    right: 20px;
+    bottom: 50px;
+}
+
+#main .save-added{
+    color:#303030;
+    position: absolute;
+    right: 20px;
+    bottom: 50px;
+}
+
+#main a{
+    text-decoration: none;
+    color: black;
+}
+
+#main a:hover{
+    text-decoration: underline;
+    color: dodgerblue;
+}
+
+@media(max-width:950px){
+    #main{
+        flex-direction: column;
+        align-items: center;
+    }
+    .desc{
+        height: 400px;
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+    #main .buy-button{
+        display: block;
+        position: unset;
+        margin: 0px auto;
+        margin-top: 80px;
+        width: 90%;
+    }
+
+    #main .save-button{
+        display: block;
+        position: unset;
+        margin: 0px auto;
+        width: 90%;
+    }
+
+    #main button.hidden{
+        display: none;
+    }
+
+    #main .cart-error{
+        line-height: 2.5em;
+        display: block;
+        position: unset;
+        margin: 0px auto;
+        margin-top: 40px;
+        width: 90%;
+    }
+
+    #main .cart-added{
+        line-height: 2.5em;
+        display: block;
+        position: unset;
+        margin: 0px auto;
+        margin-top: 80px;
+        width: 90%;
+    }
+
+    #main .save-error{
+        line-height: 2.5em;
+        display: block;
+        position: unset;
+        margin: 0px auto;
+        width: 90%;
+    }
+
+    #main .save-added{
+        line-height: 2.5em;
+        display: block;
+        position: unset;
+        margin: 0px auto;
+        width: 90%;
+    }
+}

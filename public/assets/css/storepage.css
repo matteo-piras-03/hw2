@@ -1,0 +1,267 @@
+body{
+    padding: 0px;
+    margin: 0px;
+}
+
+.hidden{
+    display: none;
+}
+
+.relative{
+    position: relative;
+}
+
+#nav_1_right{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-width: 30px;
+}
+
+#nav_1_right a{
+    margin: 0px 15px;
+}
+
+.category-menu {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.8em;
+    z-index: 1;
+    position: absolute;
+    top: 35px;
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 15px;
+    padding: 10px;
+    box-shadow: 0px 6px 6px 0px rgba(0, 0, 0, 0.1);
+    width: 200px;
+    cursor: default;
+}
+.category-menu div {
+    padding: 0;
+    margin: 0;
+}
+.category-menu span {
+    display: block;
+    padding: 8px;
+}
+.category-menu a {
+    text-decoration: none;
+    color: black;
+}
+.category-menu a:hover {
+    text-decoration: underline;
+    color: dodgerblue;
+}
+
+#shopping-cart-icon{
+    height: 20px;
+}
+
+.chevron-down{
+    height:8px
+}
+
+.ebay-logo{
+    height: 30px;
+    margin-right: 30px;
+}
+
+#main{
+    max-width: 1488px;
+    margin: 20px auto;
+    display: flex;
+    justify-content: center;
+}
+
+#main h1{
+    font-family: "Montserrat", sans-serif;
+    font-weight: bold;
+    margin-top: 0px;
+}
+
+#categories{
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 2.0em;
+    margin-right: 50px;
+    width: 200px;
+    padding-left: 10px;
+}
+
+#categories h3{
+    font-family: "Montserrat", sans-serif;
+}
+
+#item-list{
+    display: flex;
+    flex-direction: column;
+    width: 1000px;
+    min-height: 500px;
+}
+
+.item{
+    width: calc(100% - 15px);
+    height: 250px;
+    display: flex;
+    align-items: center;
+    background-color: #ffffff;
+    transition: background-color 0.3s;
+    padding-left: 15px;
+    border-radius: 25px;
+    cursor: pointer;
+}
+
+.item:hover{
+    background-color: #eeeeee;
+}
+
+.item .img-container{
+    min-width: 220px;
+    width: 220px;
+    min-height: 220px;
+    width: 220px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.item .save-button{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    border-width: 0px;
+    background-color: rgba(255, 255, 255, 0.85);
+    background-size: 70% 70%;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: display 0.5s;
+    z-index: 0;
+    cursor: pointer;
+}
+
+.item .save-button[data-fullstate="false"]{
+    background-image: url(../images/bookmark.png);
+}
+
+.item .save-button[data-fullstate="true"]{
+    background-image: url(../images/bookmark-full.png);
+}
+
+.item img{
+    max-width: 220px;
+    max-height: 220px;
+    border-radius: 10px;
+}
+
+.item .desc{
+    font-family: Arial, Helvetica, sans-serif;
+    text-overflow: ellipsis;
+    margin-left: 20px;
+    height: 210px;
+    padding-top: 40px;
+    position: relative;
+    width: calc(100% - 20px);
+}
+
+.item .title{
+    display: block;
+    margin-bottom: 5px;
+}
+
+.item .price{
+    font-weight: bold;
+    font-size: 1.5em;
+    line-height: 2;
+}
+
+.item .shipping{
+    color: #707070;
+}
+
+.item .buy-button{
+    font-weight: bold;
+    font-family: "Helvetica";
+    padding: 12px 20px;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    right: 15px;
+    bottom: 20px;
+    color:#ffffff;
+    background-color: #1e90ff;
+    transition: background-color 0.2s;
+}
+
+.item .buy-button:hover{
+    background-color: #1871c9;
+}
+
+.item .cart-error{
+    color:red;
+    position: absolute;
+    right: 25px;
+    bottom: 25px;
+}
+
+.item .cart-added{
+    color:#303030;
+    position: absolute;
+    right: 25px;
+    bottom: 25px;
+}
+
+.item a{
+    position: absolute;
+    left: 0px;
+    bottom: 25px;
+    text-decoration: none;
+    color: #303030;
+}
+
+.item a:hover{
+    text-decoration: underline;
+    color: royalblue;
+}
+
+.empty-saved-items{
+    font-family: "Montserrat", sans-serif;
+    font-size: 2.5em;
+    color: #707070;
+    margin-left: 15px;
+}
+
+@media(max-width:850px){
+    #item-list{
+        width: 100%;
+    }
+
+    .item{
+        font-size: 0.8em;
+        border-radius: unset;
+        height: 200px;
+    }
+
+    .item img{
+        width: 120px;
+        height: 120px;
+        border-radius: 7px;
+    }
+
+    .item .img-container{
+        width: 120px;
+        height: 120px;
+    }
+
+    .item .desc{
+        height: 160px;
+    }
+
+    .item .buy-button{
+        padding: 8px 10px;
+        border-radius: 20px;
+    }
+}

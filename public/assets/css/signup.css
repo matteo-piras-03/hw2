@@ -1,0 +1,134 @@
+.hidden {
+    display: none;
+}
+
+body{
+    padding: 0px;
+    margin: 0px;
+}
+
+#header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 20px 35px;
+}
+
+.ebay-logo {
+    height: 50px;
+}
+
+#main{
+    max-width: 1488px;
+    margin: 0px auto;
+    margin-bottom: 250px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#main h1{
+    font-family: "Montserrat", sans-serif;
+    font-weight: bold;
+    margin: 30px 0px;
+}
+
+#signup-box{
+    margin: 0px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-top: 20px;
+    padding: 20px;
+    border-radius: 15px;
+    background-color: #f5f5f5;
+    width: 500px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#form{
+    display: flex;
+    flex-direction: column;
+}
+
+input{
+    width: 400px;
+    height: 40px;
+    border-radius: 7px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 10px 5px;
+}
+
+.error{
+    color: #ff4040;
+    font-size: 0.8em;
+    text-align: left;
+    width: 385px;
+    padding-left: 15px;
+}
+
+#name input{
+    width: 50%;
+}
+
+#name{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+#form input[type="submit"]{
+    background-color: #707070;
+    transition: background-color 0.2s;
+    color: white;
+    border: none;
+}
+
+.valid{
+    background-color: #3665f3;
+    cursor: pointer;
+}
+
+#error_password{
+    list-style-type: disc;
+    list-style-position: inside;
+    font-size: 0.8em;
+    padding-left: 30px;
+    color: #303030;
+}
+
+#error_password li{
+    color: #303030;
+    margin: 2px 0px;
+    margin-left: 10px;
+}
+
+#error_password li.unmet{
+    color:#ff4040;
+}
+
+#server_error{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#copyright{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.7em;
+    margin-top: 30px;
+}
+
+@media(max-width:750px){
+    #signup-box{
+        padding: 20px 0px;
+        border-radius: unset;
+        width: 100%;
+    }
+    #copyright{
+        padding-left: 30px;
+        padding-right: 0px;
+    }
+}

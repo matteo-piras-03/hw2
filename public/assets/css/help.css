@@ -1,0 +1,224 @@
+body{
+    padding: 0px;
+    margin: 0px;
+}
+
+.hidden{
+    display: none;
+}
+
+.relative{
+    position: relative;
+}
+
+#nav_1_right{
+    min-width: 30px;
+}
+
+#nav_1_right a{
+    margin: 0px 15px;
+}
+
+.category-menu {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.8em;
+    z-index: 1;
+    position: absolute;
+    top: 35px;
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 15px;
+    padding: 10px;
+    box-shadow: 0px 6px 6px 0px rgba(0, 0, 0, 0.1);
+    width: 200px;
+    cursor: default;
+}
+.category-menu div {
+    padding: 0;
+    margin: 0;
+}
+.category-menu span {
+    display: block;
+    padding: 8px;
+}
+.category-menu a {
+    text-decoration: none;
+    color: black;
+}
+.category-menu a:hover {
+    text-decoration: underline;
+    color: dodgerblue;
+}
+
+#shopping-cart-icon{
+    height: 20px;
+}
+
+.chevron-down{
+    height:8px
+}
+
+#header{
+    display: flex;
+    justify-content: space-evenly;
+    height: 75px;
+    max-width: 500px;
+    margin: 0 auto;
+    align-items: center;
+    padding: 10px;
+}
+
+#header h1{
+    font-family: "Monserrat", sans-serif;
+}
+
+.ebay-logo{
+    height: 50px;
+}
+
+#main{
+    max-width: 1488px;
+    margin: 0 auto;
+}
+
+#main h1{
+    padding-left: 25px;
+    font-family: "Montserrat", sans-serif;
+    font-weight: bold;
+    margin-top: 0px;
+}
+
+#search_container{
+    margin: 30px 0px;
+    border-radius: 20px;
+    height: 200px;
+    background-color: #d4e5fe;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#search_container form{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 600px;
+}
+
+#search_box{
+    background-color:#f0f0f0;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #303030;
+    border: 1px solid #303030;
+    border-radius: 20px;
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    margin: 0px 30px;
+}
+
+#search_button{
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    color: white;
+    background-color: dodgerblue;
+    padding: 10px 40px;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+}
+
+#section-1{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: "Montserrat", sans-serif;
+    height: 300px;
+    margin: 10px 0px;
+    overflow-x: auto;
+}
+
+#section-1 a{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 230px;
+    font-weight: bold;
+}
+
+#section-1 span{
+    height: 38px;
+}
+
+.circle {
+    width: 170px;
+    height: 170px;
+    background-color: #f0f0f0;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.circle img{
+    width: 75%;
+}
+
+@media(max-width:850px){
+
+    #header{
+        display: flex;
+        justify-content: center;
+        height: 75px;
+        max-width: 1488px;
+        margin: 0 auto;
+        align-items: center;
+        padding: 10px;
+    }
+    
+    #header .ebay-logo{
+        display: none;
+    }
+
+    #search_container form{
+        flex-direction: column;
+        width: 80%;
+        gap: 20px;
+    }
+    
+    #search_box{
+        font-size: 16px;
+        width: calc(100% - 22px);
+    }
+
+    #search_bar img{
+        display: block;
+        height: 25px;
+    }
+    
+    #header #search_button{
+        display: none;
+    }
+
+}
+
+@media(max-width:1488px){
+    #search_container{
+        border-radius: unset;
+    }
+}
+
+@media(max-width:1100px){
+    #section-1{
+        overflow-x: unset;
+        overflow-y: auto;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        height: 600px;
+        gap: 30px;
+        margin: 10px auto;
+    }
+}

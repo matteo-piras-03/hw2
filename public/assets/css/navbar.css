@@ -1,0 +1,92 @@
+#nav_1 {
+    height: 24px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #303030;
+    font-size: 0.9em;
+    display: flex;
+    justify-content: space-between;
+    padding: 8px;
+    max-width: 1488px;
+    margin: 0 auto;
+}
+
+#nav_1 .login{
+    text-decoration: none;
+    color: royalblue;
+}
+
+#nav_1 a{
+    text-decoration: none;
+    color: #303030;
+}
+#nav_1 a:hover{
+    color: royalblue;
+    text-decoration: underline;
+}
+
+.gray-line{
+    height: 1px;
+    background-color: gainsboro;
+}
+
+#nav_1_left{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-width: 250px;
+}
+
+#nav_1_left span{
+    margin-right: 30px;
+}
+
+
+#nav_1_right{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-width: 230px;
+}
+
+#nav_1_right a{
+    margin: 0px 15px;
+}
+
+#nav_1_right button{
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: left;
+    border: none;
+    background-color: white;
+    padding: 0px;
+    margin: 0px 15px;
+    height: 17px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+#nav_1_right button:hover{
+    color:royalblue;
+    text-decoration: underline;
+}
+
+#nav_1_right button .category-menu{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.9em;
+    z-index: 1;
+    position: absolute;
+    top: 25px;
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 15px;
+    padding: 10px;
+    box-shadow: 0px 6px 6px 0px rgba(0, 0, 0, 0.1);
+    width: 150px;
+}
+
+#shopping-cart-icon{
+    height: 20px;
+}
+
+.chevron-down{
+    height:8px
+}
