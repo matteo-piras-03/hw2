@@ -227,7 +227,7 @@ function onError(error) {
 
 function onJsonParam(currency){
     return function(json){
-        onJson(json, currency)
+        return onJson(json, currency)
     }
 }
 

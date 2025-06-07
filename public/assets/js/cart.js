@@ -140,7 +140,7 @@ async function currency_exchange_click(event){
 }
 
 async function get_currency_exchange(old_currency){
-    return fetch("https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/currencies/" + old_currency + ".json").then(onCurrencyResponse, onError).then(json => onCurrencyJson(json, old_currency));
+    return fetch("https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/currencies/" + old_currency + ".json").then(onCurrencyResponse, onError).then(onCurrencyJsonParam(old_currency));
 }
 
 function onError(error) {
@@ -149,6 +149,12 @@ function onError(error) {
 
 function onCurrencyResponse(response) {
     return response.json();
+}
+
+function onCurrencyJsonParam(currency){
+    return function(json){
+        return onCurrencyJson(json, currency);
+    }
 }
 
 function onCurrencyJson(json, old_currency) {
