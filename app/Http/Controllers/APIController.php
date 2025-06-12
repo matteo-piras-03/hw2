@@ -41,8 +41,8 @@ class APIController extends Controller
 
     public function search_items($query){
         //Ricerca tramite eBay
-        $client_id = "";
-        $client_secret = "";
+        $client_id = env("EBAY_CLIENT");
+        $client_secret = env("EBAY_SECRET");
         $curl = curl_init();
         curl_setopt($curl, CURLOPT_URL,"https://api.sandbox.ebay.com/identity/v1/oauth2/token");
         curl_setopt($curl, CURLOPT_RETURNTRANSFER,1);
