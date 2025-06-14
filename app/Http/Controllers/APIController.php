@@ -10,17 +10,23 @@ use Illuminate\Support\Facades\DB;
 class APIController extends Controller
 {
     public function get_storepage_items_by_category($category){
-        $items = Item::where("category","=",$category)->select(DB::raw("item.id, item.item_id, title, FORMAT(price,2) AS price, FORMAT(shipping,2) AS shipping, src"))->get();
+        $items = Item::select("item.id", "item.item_id", "title", DB::raw("FORMAT(price,2) AS price"), DB::raw("FORMAT(shipping,2) AS shipping"), "src")
+            ->where("category", "=", $category)
+            ->get();
         return $items;
     }
 
     public function get_storepage_items_by_title($title){
-        $items = Item::where("title","LIKE","%".$title."%")->select(DB::raw("item.id, item.item_id, title, FORMAT(price,2) AS price, FORMAT(shipping,2) AS shipping, src"))->get();
+        $items = Item::select("item.id", "item.item_id", "title", DB::raw("FORMAT(price,2) AS price"), DB::raw("FORMAT(shipping,2) AS shipping"), "src")
+            ->where("title", "LIKE", "%".$title."%")
+            ->get();
         return $items;
     }
 
     public function get_item_by_id($id){
-        $item = Item::where("id","=",$id)->select(DB::raw("item.id, item.item_id, title, FORMAT(price,2) AS price, FORMAT(shipping,2) AS shipping, src"))->first();
+        $item = Item::select("item.id", "item.item_id", "title", DB::raw("FORMAT(price,2) AS price"), DB::raw("FORMAT(shipping,2) AS shipping"), "src")
+            ->where("id", "=", $id)
+            ->first();
         return $item;
     }
 

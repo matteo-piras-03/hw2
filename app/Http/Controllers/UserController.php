@@ -14,7 +14,7 @@ class UserController extends Controller
             return [];
         }
         $user = User::find(session("id"));
-        return $user->cart()->select(DB::raw("item.id, item.item_id, title, FORMAT(price,2) AS price, FORMAT(shipping,2) AS shipping, src"))->get();
+        return $user->cart()->select("item.id", "item.item_id", "title", DB::raw("FORMAT(price,2) AS price"), DB::raw("FORMAT(shipping,2) AS shipping"), "src")->get();
     }
 
     public function add_cart_item(Request $request){
@@ -46,7 +46,7 @@ class UserController extends Controller
             return [];
         }
         $user = User::find(session("id"));
-        return $user->saved_items()->select(DB::raw("item.id, item.item_id, title, FORMAT(price,2) AS price, FORMAT(shipping,2) AS shipping, src"))->get();
+        return $user->saved_items()->select("item.id", "item.item_id", "title", DB::raw("FORMAT(price,2) AS price"), DB::raw("FORMAT(shipping,2) AS shipping"), "src")->get();
     }
 
     public function add_saved_item(Request $request){
