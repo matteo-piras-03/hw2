@@ -1,3 +1,8 @@
+//laravel utilities
+const token = document.querySelector("meta[name='csrf-token']").content;
+const get_cart_url = base_url + "/user/get_cart";
+const delete_cart_item_url = base_url + "/user/delete_cart_item";
+
 const item_list = document.querySelector("#item-list");
 getCart();
 function getCart(){

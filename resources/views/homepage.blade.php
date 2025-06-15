@@ -12,12 +12,6 @@
     @parent
     <script>
         const base_url = "{{ url('/') }}";
-        const get_storepage_items_by_category_url = base_url + "/get_storepage_items_category/";
-        const get_storepage_items_by_title_url = base_url + "/get_storepage_items_title/";
-        const currency_exchange_url = base_url + "/get_currency_exchange/";
-        const search_items_url = base_url + "/search/";
-        const add_item_in_db_url = base_url + "/add_item_in_db";
-        const token = "{{ csrf_token() }}";
     </script>
     <script src="{{ url('assets/js/index.js') }}" defer></script>
 @endsection

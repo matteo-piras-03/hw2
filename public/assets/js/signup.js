@@ -1,3 +1,6 @@
+//laravel utilities
+const check_signup_email_url = base_url + "/check_signup_email/";
+
 const form = document.forms['signup'];
 form.addEventListener('submit', submitListener)
 form['name'].addEventListener('blur', validateName);

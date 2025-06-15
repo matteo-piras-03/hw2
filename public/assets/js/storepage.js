@@ -1,3 +1,11 @@
+//laravel utilities
+const token = document.querySelector("meta[name='csrf-token']").content;
+const get_cart_url = base_url + "/user/get_cart";
+const add_cart_item_url = base_url + "/user/add_cart_item";
+const delete_cart_item_url = base_url + "/user/delete_cart_item";
+const get_saved_items_url = base_url + "/user/get_saved_items";
+const add_saved_item_url = base_url + "/user/add_saved_item";
+const delete_saved_item_url = base_url + "/user/delete_saved_item";
 
 const item_list = document.querySelector("#item-list");
 console.log(type);

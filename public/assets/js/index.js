@@ -1,3 +1,11 @@
+//laravel utilities
+const token = document.querySelector("meta[name='csrf-token']").content;
+const get_storepage_items_by_category_url = base_url + "/get_storepage_items_category/";
+const get_storepage_items_by_title_url = base_url + "/get_storepage_items_title/";
+const currency_exchange_url = base_url + "/get_currency_exchange/";
+const search_items_url = base_url + "/search/";
+const add_item_in_db_url = base_url + "/add_item_in_db";
+
 //nav_1
 const nav1_currency_exchange = document.querySelector("#currency-exchange");
 const nav1_currency_exchange_menu = document.querySelector("#currency-exchange .category-menu");
@@ -13,7 +21,6 @@ nav1_currency_exchange.addEventListener("click", currency_exchange_click);
 var currency_selected = "eur";
 var previous_currency_selected = "eur";
 async function currency_exchange_click(event){
-    console.log("click");
     nav1_currency_exchange_menu.classList.toggle("hidden");
     currency_selected = event.target.id;
     if(currencies.includes(currency_selected)){

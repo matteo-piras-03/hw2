@@ -12,9 +12,6 @@
     @parent
     <script>
         const base_url = "{{ url('/') }}";
-        const get_cart_url = base_url + "/user/get_cart";
-        const delete_cart_item_url = base_url + "/user/delete_cart_item"
-        const token = "{{ csrf_token() }}";
     </script>
     <script src="{{ url('assets/js/cart.js') }}" defer></script>
 @endsection

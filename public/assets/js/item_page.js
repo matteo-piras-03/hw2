@@ -1,3 +1,9 @@
+//laravel utilities
+const token = document.querySelector("meta[name='csrf-token']").content;
+const get_item_by_id_url = base_url + "/get_item/";
+const add_cart_item_url = base_url + "/user/add_cart_item";
+const add_saved_item_url = base_url + "/user/add_saved_item";
+
 fetch(get_item_by_id_url + encodeURIComponent(item_id)).then(onResponse).then(onJson);
 
 function onResponse(response){

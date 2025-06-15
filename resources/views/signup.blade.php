@@ -4,8 +4,7 @@
 
 @section('js')
     <script>
-        base_url = "{{ url('/') }}";
-        check_signup_email_url = base_url + "/check_signup_email/";
+        const base_url = "{{ url('/') }}";
     </script>
     <script src="{{ url('assets/js/signup.js') }}" defer></script>
 @endsection

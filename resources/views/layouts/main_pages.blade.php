@@ -1,5 +1,9 @@
 @extends('layouts.common')
 
+@section('meta')
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+@endsection
+
 @section('css')
     <link rel="stylesheet" href="{{ url('assets/css/navbar.css') }}">
     <link rel="stylesheet" href="{{ url('assets/css/footer.css') }}">

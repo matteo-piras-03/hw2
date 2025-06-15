@@ -91,6 +91,7 @@ class APIController extends Controller
             $item->price = $request->price;
             $item->shipping = $request->shipping;
             $item->src = $request->src;
+            $item->category = "searched_items";
             $item->save();
             $check_item = Item::where("item_id",$request->item_id)->first();
         }
