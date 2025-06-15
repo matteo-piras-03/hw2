@@ -39,7 +39,7 @@
     @show
     @section('navbar_mobile')
         <nav id="nav_1_mobile">
-            <img src="{{url('assets/images/eBay_logo.png')}}" class="ebay-logo"/>
+            <a href="{{ url("/home") }}"><img src="{{url('assets/images/eBay_logo.png')}}" class="ebay-logo"/></a>
             <div id="nav_1_mobile_right">
                 <a href="{{ url('/user/cart') }}"><img src="{{url('assets/images/shopping-cart-icon.png')}}" /></a>
                 <div id="mobile_menu" class="relative">
@@ -47,6 +47,7 @@
                     <div class="category-menu hidden">
                         @if (session("name"))
                             <span>Ciao {{ session("name") }}! (<a href="{{ url('/logout') }}" class="login">Esci</a>)</span>
+                            <span><a href="{{ url('/user/saved_items') }}"> Articoli salvati </a></span>
                         @else
                             <span><a href="{{ url('/login') }}">Accedi</a></span>
                             <span><a href="{{ url('/signup') }}">Registrati</a></span>
