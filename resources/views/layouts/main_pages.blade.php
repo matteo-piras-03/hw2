@@ -49,9 +49,9 @@
                             <span>Ciao {{ session("name") }}! (<a href="{{ url('/logout') }}" class="login">Esci</a>)</span>
                         @else
                             <span><a href="{{ url('/login') }}">Accedi</a></span>
-                            <span><a href="{{ url(path: '/signup') }}">Registrati</a></span>
+                            <span><a href="{{ url('/signup') }}">Registrati</a></span>
                         @endif
-                        <span><a href="assets/php/help.php">Aiuto e contatti</a></span>
+                        <span><a href="{{ url("/help") }}">Aiuto e contatti</a></span>
                     </div>
                 </div>
             </div>
@@ -127,7 +127,7 @@
                 <a href="">Spazio venditori</a>
                 <a href="">Regole eBay</a>
                 <a href="">Affiliazione</a>
-                <a href="assets/php/help.php">Aiuto e contatti</a>
+                <a href="{{ url("/help") }}">Aiuto e contatti</a>
                 <a href="">Mappa del sito</a>
             </div>
             <div id="copyright">
