@@ -14,6 +14,7 @@ Route::get('/', function () {
 Route::get('/home', [PageController::class, 'home']);
 Route::get('/storepage_category/{category}', [PageController::class,'storepage_category']);
 Route::get('/storepage_title/{title}', [PageController::class,'storepage_title']);
+//Route::get('/storepage/{category?}/{title?}', [PageController::class,'storepage']);
 Route::get('/item/{id}', [PageController::class,'item']);
 Route::get('/help', [PageController::class,'help']);
 
