@@ -81,7 +81,7 @@ class APIController extends Controller
 
     public function add_item_in_db(Request $request){
         if(!isset($request->item_id) || !isset($request->title) || !isset($request->price) || !isset($request->shipping)){
-            return $request->item_id . $request->title . $request->price . $request->shipping . $request->src;
+            return -1;
         }
         $check_item = Item::where("item_id",$request->item_id)->first();
         if($check_item == null){

@@ -22,8 +22,8 @@ class UserController extends Controller
             return -1;
         }
         $user = User::find(session("id"));
-        if(!$user->cart->contains($request->item_id)){
-            $user->cart()->attach($request->item_id);
+        if(!$user->cart->contains($request->item_id)){ //laravel.com/docs/12.x/collections#method-contains
+            $user->cart()->attach($request->item_id); //laravel.com/docs/12.x/eloquent-relationships#attaching-detaching
             return 1;
         }
         return 0;
