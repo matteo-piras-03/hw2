@@ -10,7 +10,7 @@ function onResponse(response){
     return response.json();
 }
 
-async function onJson(json){
+function onJson(json){
     const main = document.getElementById("main");
     const img_container = document.createElement("div");
     const img = document.createElement("img");
@@ -63,17 +63,24 @@ async function onJson(json){
 
 }
 
-var add_item_cart_response;
-
-async function onCartButtonClick(event){
+function onCartButtonClick(event){
     const cart_button = event.currentTarget;
     const desc = cart_button.parentNode;
     const formdata = new FormData();
     formdata.append("item_id", item_id);
     formdata.append("_token", token);
-    await fetch(add_cart_item_url, {method: "post", body: formdata}).then(onFetchResponse).then(onCartText);
+    fetch(add_cart_item_url, {method: "post", body: formdata}).then(onFetchResponse).then(onCartText(desc, cart_button));
+}
+
+function onFetchResponse(response){
+    if(response.ok)
+        return response.text();
+}
+
+function onCartText(desc, cart_button){
+    return function(text){
     const msg = document.createElement("span");
-    switch(add_item_cart_response){
+    switch(text){
         case "-1": //errore fatale
             msg.classList.add("cart-error");
             msg.textContent = "Errore.";
@@ -92,27 +99,22 @@ async function onCartButtonClick(event){
     }
     cart_button.classList.add("hidden");
     cart_button.removeEventListener("click",onCartButtonClick);
+    }
 }
 
-function onFetchResponse(response){
-    if(response.ok)
-        return response.text();
-}
-
-function onCartText(text){
-    add_item_cart_response = text;
-}
-var save_item_response;
-
-async function onSaveButtonClick(event){
+function onSaveButtonClick(event){
     const save_button = event.currentTarget;
     const desc = save_button.parentNode;
     const formdata = new FormData();
     formdata.append("item_id", item_id);
     formdata.append("_token", token);
-    await fetch(add_saved_item_url, {method: "post", body: formdata}).then(onFetchResponse).then(onSavedItemText);
+    fetch(add_saved_item_url, {method: "post", body: formdata}).then(onFetchResponse).then(onSavedItemText(desc, save_button));
+}
+
+function onSavedItemText(desc, save_button){
+    return function(text){
     const msg = document.createElement("span");
-    switch(save_item_response){
+    switch(text){
         case "-1":
             msg.classList.add("save-error");
             msg.textContent = "Errore.";
@@ -131,8 +133,5 @@ async function onSaveButtonClick(event){
     }
     save_button.classList.add("hidden");
     save_button.removeEventListener("click",onCartButtonClick);
-}
-
-function onSavedItemText(text){
-    save_item_response = text;
+    }
 }

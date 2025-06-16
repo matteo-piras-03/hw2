@@ -3,8 +3,8 @@ form.addEventListener('submit', submitListener)
 form['email'].addEventListener('blur', validateEmail);
 form['email'].addEventListener('input', validateEmailInput);
 form['password'].addEventListener('input', validatePassword);
-var validEmail = false;
-var validPassword = false;
+let validEmail = false;
+let validPassword = false;
 
 function validateEmail() {
     const email = form['email'].value;
@@ -18,7 +18,7 @@ function validateEmail() {
     }
 }
 
-async function validateEmailInput(){
+function validateEmailInput(){
     const email = form['email'].value;
 
     const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;

@@ -14,11 +14,11 @@ form['password'].addEventListener('blur', hidePassword);
 form['password'].addEventListener('input', validatePassword);
 form['confirm_password'].addEventListener('blur', validateConfirmPassword);
 form['confirm_password'].addEventListener('input', validateConfirmPasswordInput);
-var validName = false;
-var validSurname = false;
-var validEmail = false;
-var validPassword = false;
-var validConfirmPassword = false;
+let validName = false;
+let validSurname = false;
+let validEmail = false;
+let validPassword = false;
+let validConfirmPassword = false;
 
 function validateName() {
     const name = form['name'].value;

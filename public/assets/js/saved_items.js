@@ -85,33 +85,27 @@ function onItemClick(event){
     window.location.href = base_url + "/item/" + encodeURIComponent(event.currentTarget.dataset.id);
 }
 
-var delete_saved_item_response;
-
-async function onClickRemoveButton(event){
+function onClickRemoveButton(event){
     event.stopPropagation();
     event.preventDefault();
     const id = event.currentTarget.parentNode.parentNode.dataset.id;
     const formdata = new FormData();
     formdata.append("item_id", id);
     formdata.append("_token", token);
-    await fetch(delete_saved_item_url, {method: "post", body: formdata}).then(OnSavedItemResponse).then(onSavedItemText);
-    if(delete_saved_item_response === "1"){
-        getSavedItems();
-    }
+    fetch(delete_saved_item_url, {method: "post", body: formdata}).then(OnSavedItemResponse).then(onSavedItemText);
 }
 
 function OnSavedItemResponse(response){
     if(response.ok)
-    return response.text();
+        return response.text();
 }
 
 function onSavedItemText(text){
-    delete_saved_item_response = text;
+    if(text === "1")
+        getSavedItems();
 }
 
-var add_item_cart_response;
-
-async function onBuyButtonClick(event){
+function onBuyButtonClick(event){
     event.stopPropagation();
     const id = event.currentTarget.parentNode.parentNode.dataset.id;
     const cart_button = event.currentTarget;
@@ -119,27 +113,7 @@ async function onBuyButtonClick(event){
     const formdata = new FormData();
     formdata.append("item_id", id);
     formdata.append("_token", token);
-    await fetch(add_cart_item_url, {method: "post", body: formdata}).then(onFetchResponse).then(onCartText);
-    const msg = document.createElement("span");
-    switch(add_item_cart_response){
-        case "-1": //errore fatale
-            msg.classList.add("cart-error");
-            msg.textContent = "Errore.";
-            desc.appendChild(msg);
-            break;
-        case "0": //oggetto già presente nel carrello
-            msg.classList.add("cart-error");
-            msg.textContent = "Oggetto già presente nel carrello.";
-            desc.appendChild(msg);
-            break;
-        case "1": //oggetto inserito correttamente nel carrello
-            msg.classList.add("cart-added");
-            msg.textContent = "Oggetto inserito nel carrello.";
-            desc.appendChild(msg);
-            break;
-    }
-    cart_button.classList.add("hidden");
-    cart_button.removeEventListener("click",onBuyButtonClick);
+    fetch(add_cart_item_url, {method: "post", body: formdata}).then(onFetchResponse).then(onCartText(desc, cart_button));
 }
 
 function onFetchResponse(response){
@@ -147,6 +121,27 @@ function onFetchResponse(response){
         return response.text();
 }
 
-function onCartText(text){
-    add_item_cart_response = text;
+function onCartText(desc, cart_button){
+    return function(text){
+        const msg = document.createElement("span");
+        switch(text){
+            case "-1": //errore fatale
+                msg.classList.add("cart-error");
+                msg.textContent = "Errore.";
+                desc.appendChild(msg);
+                break;
+            case "0": //oggetto già presente nel carrello
+                msg.classList.add("cart-error");
+                msg.textContent = "Oggetto già presente nel carrello.";
+                desc.appendChild(msg);
+                break;
+            case "1": //oggetto inserito correttamente nel carrello
+                msg.classList.add("cart-added");
+                msg.textContent = "Oggetto inserito nel carrello.";
+                desc.appendChild(msg);
+                break;
+        }
+        cart_button.classList.add("hidden");
+        cart_button.removeEventListener("click",onBuyButtonClick);
+    }
 }

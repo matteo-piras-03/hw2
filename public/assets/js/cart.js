@@ -14,7 +14,7 @@ function onResponse(response){
     return response.json();
 }
 
-var total = 0;
+let total = 0;
 
 function onJson(json){
     console.log(json);
@@ -91,27 +91,24 @@ function updateTotal(total){
     total_element.textContent = total + " " + currency_to_symbol(currency_selected);
 }
 
-var delete_item_cart_response;
-
-async function onClickRemoveButton(event){
+function onClickRemoveButton(event){
     event.preventDefault();
     const id = event.currentTarget.parentNode.parentNode.dataset.id;
     const formdata = new FormData();
     formdata.append("item_id", id);
     formdata.append("_token", token);
-    await fetch(delete_cart_item_url, {method: "post", body: formdata}).then(OnCartResponse).then(onCartText);
-    if(delete_item_cart_response === "1"){
-        getCart();
-    }
+    fetch(delete_cart_item_url, {method: "post", body: formdata}).then(OnCartResponse).then(onCartText);
 }
 
 function OnCartResponse(response){
     if(response.ok)
-    return response.text();
+        return response.text();
 }
 
 function onCartText(text){
-    delete_item_cart_response = text;
+    if(text === "1"){
+        getCart();
+    }
 }
 
 //nav
@@ -138,8 +135,8 @@ for (const currency of currency_as){
 }
 
 nav1_currency_exchange.addEventListener("click", currency_exchange_click);
-var currency_selected = "eur";
-var previous_currency_selected = "eur";
+let currency_selected = "eur";
+let previous_currency_selected = "eur";
 async function currency_exchange_click(event){
     nav1_currency_exchange_menu.classList.toggle("hidden"); 
 }
@@ -169,8 +166,8 @@ function onCurrencyJson(json, old_currency) {
     return exchange_rate;
 }
 
-var prices;
-var shippings;
+let prices;
+let shippings;
 
 function get_prices(){
     prices = document.querySelectorAll(".price");

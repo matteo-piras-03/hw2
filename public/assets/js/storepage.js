@@ -39,10 +39,7 @@ function onImgMouseout(event){
     }
 }
 
-var save_item_response;
-var delete_item_response;
-
-async function onSaveButtonClick(event){
+function onSaveButtonClick(event){
     event.stopPropagation();
     const save_button = event.currentTarget;
     const id = save_button.parentNode.parentNode.dataset.id;
@@ -51,28 +48,28 @@ async function onSaveButtonClick(event){
     formdata.append("_token", token);
     if(save_button.dataset.fullstate === "false"){
         //salvataggio dell'oggetto
-        await fetch(add_saved_item_url, {method: "post", body: formdata}).then(onFetchResponse).then(onSavedItemText);
-        if(save_item_response >= 0)
-            save_button.dataset.fullstate = "true";    
+        fetch(add_saved_item_url, {method: "post", body: formdata}).then(onFetchResponse).then(onSavedItemText(save_button));  
     }else{
         //cancellazzione dell'oggetto salvato
-        await fetch(delete_saved_item_url, {method: "post", body: formdata}).then(onFetchResponse).then(onDeleteSavedItemText);
-        if(delete_item_response === "1")
-            save_button.dataset.fullstate = "false";
+        fetch(delete_saved_item_url, {method: "post", body: formdata}).then(onFetchResponse).then(onDeleteSavedItemText(save_button));
     }
 }
 
-function onSavedItemText(text){
-    save_item_response = text;
+function onSavedItemText(save_button){
+    return function(text){
+        if(text >= 0)
+            save_button.dataset.fullstate = "true"; 
+    }
 }
 
-function onDeleteSavedItemText(text){
-    delete_item_response = text;
+function onDeleteSavedItemText(save_button){
+    return function(text){
+        if(text === "1")
+            save_button.dataset.fullstate = "false"; 
+    }
 }
 
-var add_item_cart_response;
-
-async function onBuyButtonClick(event){
+function onBuyButtonClick(event){
     event.stopPropagation();
     if(active_session){
         const id = event.currentTarget.parentNode.parentNode.dataset.id;
@@ -81,9 +78,21 @@ async function onBuyButtonClick(event){
         const formdata = new FormData();
         formdata.append("item_id", id);
         formdata.append("_token", token);
-        await fetch(add_cart_item_url, {method: "post", body: formdata}).then(onFetchResponse).then(onCartText);
+        fetch(add_cart_item_url, {method: "post", body: formdata}).then(onFetchResponse).then(onCartText(desc, cart_button)); 
+    }else{
+        window.location.href = base_url + "/login";
+    }
+}
+
+function onFetchResponse(response){
+    if(response.ok)
+        return response.text();
+}
+
+function onCartText(desc, cart_button){
+    return function(text){
         const msg = document.createElement("span");
-        switch(add_item_cart_response){
+        switch(text){
             case "-1": //errore fatale
                 msg.classList.add("cart-error");
                 msg.textContent = "Errore.";
@@ -102,21 +111,10 @@ async function onBuyButtonClick(event){
         }
         cart_button.classList.add("hidden");
         cart_button.removeEventListener("click",onBuyButtonClick);
-    }else{
-        window.location.href = base_url + "/login";
     }
 }
 
-function onFetchResponse(response){
-    if(response.ok)
-        return response.text();
-}
-
-function onCartText(text){
-    add_item_cart_response = text;
-}
-
-var saved_items_list = [];
+let saved_items_list = [];
 
 async function onJson(json){
     console.log(json);

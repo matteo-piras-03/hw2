@@ -18,8 +18,8 @@ for (const currency of currency_as) {
 }
 
 nav1_currency_exchange.addEventListener("click", currency_exchange_click);
-var currency_selected = "eur";
-var previous_currency_selected = "eur";
+let currency_selected = "eur";
+let previous_currency_selected = "eur";
 async function currency_exchange_click(event){
     nav1_currency_exchange_menu.classList.toggle("hidden");
     currency_selected = event.target.id;
@@ -38,7 +38,7 @@ const s1 = document.getElementById("section-1");
 const s1_text = document.querySelector("#section-1 .text");
 const s1_text_button_init = document.querySelector("#section-1 .text .text-button");
 s1_text_button_init.addEventListener("click", s1_1_button_click);
-var active_dot = 0;
+let active_dot = 0;
 
 for(const button of s1_buttons){
     button.addEventListener("click", button_click);
@@ -164,7 +164,7 @@ function onItemJsonParam(item_list){
     }
 }
 
-async function onItemJson(json, item_list){
+function onItemJson(json, item_list){
     console.log(json);
     for(const item of json){
         const item_id = item.id;
@@ -246,8 +246,8 @@ function onJson(json, old_currency) {
     return exchange_rate;
 }
 
-var prices;
-var shippings;
+let prices;
+let shippings;
 
 function get_prices(){
     prices = document.querySelectorAll(".price");
